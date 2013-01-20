@@ -6,6 +6,9 @@ import com.cookingcombo.model.CCModel;
 import static com.cookingcombo.model.CCModel.adam;
 import static com.cookingcombo.model.CCModel.bob;
 
+// TCP connections
+// ServerSocket
+// Socket
 public class Control
 {
   CCModel model = null;
@@ -31,7 +34,7 @@ public class Control
   public void makeTestDeck()
   {
     int testSize = 20;
-    int bobHandSize = 2;
+    //int bobHandSize = 2;
     int adamHandSize = 4;
     
     // Set deck

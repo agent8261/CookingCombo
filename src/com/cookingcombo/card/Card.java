@@ -15,7 +15,6 @@ public abstract class Card implements ActionListener
 {
   private static int globalId = 1;
   private static final ImageManager imgMngr = new ImageManager();
-  private static final String imageDir = "\\images\\";
   
   public PlayerState owner = PlayerState.NOPLAYER;
   public PlayerState controller = PlayerState.NOPLAYER;

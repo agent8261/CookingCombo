@@ -27,6 +27,10 @@ public class Pot extends CCObservable
     assert(cardid != null);
     potCards.put(cardid, card);
     addTraitsOfItem((Cookable)card);
+    assert(card != null);
+    
+    // update the view
+    addButtonToView(card);  
   }
   
   // --------------------------------------------------------------------------
@@ -56,6 +60,8 @@ public class Pot extends CCObservable
     {  return;  }
     removeTraitsOfItem((Cookable) card);
     potCards.remove(cardId);
+    // update the view
+    removeButtonFromView(card);    
   }
   
   // --------------------------------------------------------------------------

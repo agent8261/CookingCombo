@@ -3,6 +3,7 @@ package com.cookingcombo.model;
 import java.awt.BorderLayout;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import com.cookingcombo.card.Card;
@@ -32,7 +33,12 @@ public class CCModel extends JPanel
   private TurnPanel turnPanel = new TurnPanel();
   private LeftInfoPanel leftInfoPanel = new LeftInfoPanel();
   private RightInfoPanel rightInfoPanel = new RightInfoPanel();
-  private PotPanel potPanel = new PotPanel();  
+  
+  private BoxLayout mainPotlayout = null;
+  private JPanel mainPotPanel = new JPanel();
+  private PotPanel adamsPotPanel = new PotPanel();
+  private PotPanel bobPotPanel = new PotPanel();
+  
   private HandPanel handPanel = new HandPanel();  
 
   //---------------------------------------------------------------------------
@@ -72,17 +78,35 @@ public class CCModel extends JPanel
     super();
     setLayout(layout);
     
+    mainPotlayout = new BoxLayout(mainPotPanel, BoxLayout.Y_AXIS);
+    mainPotPanel.setLayout(mainPotlayout);
+    mainPotPanel.add(bobPotPanel);
+    mainPotPanel.add(adamsPotPanel);
+    
     this.add(leftInfoPanel, BorderLayout.LINE_START);
     this.add(rightInfoPanel, BorderLayout.LINE_END);
-    this.add(potPanel, BorderLayout.CENTER);
+    this.add(mainPotPanel, BorderLayout.CENTER);
     this.add(turnPanel, BorderLayout.PAGE_START);
     this.add(handPanel, BorderLayout.PAGE_END);
     
+    doUiDemo();
+    
+    /*
     // Link Model and View
     adamsHand.attach(handPanel, this);
+    adamsPot.attach(adamsPotPanel, this);
+    bobsPot.attach(bobPotPanel, this);
     
     control = new Control(this);
     control.makeTestDeck();
+    */
+  }
+  
+  private void doUiDemo()
+  {
+    adamsPotPanel.doUiDemo();
+    bobPotPanel.doUiDemo();
+    handPanel.doUiDemo();    
   }
 
   //---------------------------------------------------------------------------
@@ -91,10 +115,12 @@ public class CCModel extends JPanel
     if(player == PlayerState.ADAM)
     {
       adamsDeck.addCardToDeck(card);
+      rightInfoPanel.updateDeckSize(player, adamsDeck.getDeckSize());
     }
     else
     {
       bobsDeck.addCardToDeck(card);
+      rightInfoPanel.updateDeckSize(player, bobsDeck.getDeckSize());    
     }
   }
   
@@ -105,11 +131,13 @@ public class CCModel extends JPanel
     {
       List<Card> pile = adamsDeck.drawCards(numCards);
       adamsHand.addCards(pile);
+      rightInfoPanel.updateDeckSize(player, adamsDeck.getDeckSize());      
     }
     else
     {
       List<Card> pile = bobsDeck.drawCards(numCards);
       bobsHand.addCards(pile);
+      rightInfoPanel.updateDeckSize(player, bobsDeck.getDeckSize());      
     }
   }
   
@@ -151,6 +179,8 @@ public class CCModel extends JPanel
     { adamsDeckSize = newAmount;  }
     else
     { bobsDeckSize = newAmount; }
+    rightInfoPanel.updateDeckSize(player, newAmount);
+    
   }
   
   //---------------------------------------------------------------------------
@@ -159,6 +189,15 @@ public class CCModel extends JPanel
     if(player == PlayerState.ADAM)
     { adamsPoints = newAmount;  }
     else
-    { bobsPoints = newAmount; }    
+    { bobsPoints = newAmount; }
+    rightInfoPanel.updatePoints(player, newAmount);
   }
+  
+  public void doPlayer(PlayerState player)
+  {
+    if(player == PlayerState.ADAM)
+    {}
+    else
+    {}
+  }  
 }

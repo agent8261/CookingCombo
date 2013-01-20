@@ -75,4 +75,8 @@ public class DeckDiscard extends CCObservable
     for(Card card: cards)
     { discardCard(card);  }
   }
+  
+  //--------------------------------------------------------------------------
+  public int getDeckSize()
+  { return deck.size(); }
 }

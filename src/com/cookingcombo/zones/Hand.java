@@ -3,8 +3,6 @@ package com.cookingcombo.zones;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import javax.swing.JButton;
-
 import com.cookingcombo.card.Card;
 
 public class Hand extends CCObservable
@@ -14,9 +12,7 @@ public class Hand extends CCObservable
   public void addCard(Card card)
   {
     assert(card != null);
-    JButton button = card.getButton();
-    assert(button != null);
-    viewer.addButton(button);
+    addButtonToView(card);
     hand.put(card.getUnqId(), card);
   }
   
@@ -33,9 +29,8 @@ public class Hand extends CCObservable
     Integer cardId = card.getUnqId();
     assert(cardId != null);
     hand.remove(cardId);
-    JButton button = card.getButton();
-    assert(button != null);    
-    viewer.removeButton(button);
+    // update the view
+    removeButtonFromView(card);
   }
   
   public void removeCards()

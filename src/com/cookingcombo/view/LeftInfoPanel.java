@@ -1,7 +1,10 @@
 package com.cookingcombo.view;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.border.Border;
 
 public class LeftInfoPanel extends CCViewer
 {
@@ -9,7 +12,14 @@ public class LeftInfoPanel extends CCViewer
   
   public LeftInfoPanel()
   {
+//    setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+//    setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    
     this.add(label);
+    Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+    Border loweredbevel = BorderFactory.createLoweredBevelBorder();    
+    Border compound = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
+    setBorder(compound);    
   }
   
   //---------------------------------------------------------------------------

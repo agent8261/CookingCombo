@@ -1,8 +1,10 @@
 package com.cookingcombo.view;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 public class TurnPanel extends CCViewer
 {
@@ -11,6 +13,10 @@ public class TurnPanel extends CCViewer
   public TurnPanel()
   {
     this.add(label);
+    Border raisedbevel = BorderFactory.createRaisedBevelBorder();
+    Border loweredbevel = BorderFactory.createLoweredBevelBorder();    
+    Border compound = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
+    setBorder(compound);    
   }
   //---------------------------------------------------------------------------
   // add a button to the panel
