@@ -8,13 +8,12 @@ import java.util.List;
 import com.cookingcombo.card.Card;
 import com.cookingcombo.errors.EmptyDeck;
 
-
 // First is top, last is bottom
-public class DeckDiscard
+public class DeckDiscard extends CCObservable
 {
   private LinkedList<Card> deck = new LinkedList<Card>();
   private LinkedList<Card> discard = new LinkedList<Card>();
-
+  
   // --------------------------------------------------------------------------
   public void addCardToDeck(Card card)
   {  deck.add(card);  }

@@ -1,16 +1,20 @@
 package com.cookingcombo.card.basiccards;
 
+import java.awt.event.ActionEvent;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.swing.JButton;
+
 import com.cookingcombo.card.Ingredient;
 import com.cookingcombo.card.Trait;
 
-
 public class Garlic extends Ingredient
 {
-  private static String imageFile = "";
+  private static String imageFile = "garlicFrame.png";
+  private static String imageName = "Garlic";
+  
   private static Map<Trait, Integer> traits = null;
   private static Map<Trait, Integer> conflicts = null;
   
@@ -28,7 +32,7 @@ public class Garlic extends Ingredient
     conflicts = new TreeMap<Trait, Integer>();
     conflicts.put(Trait.DESSERT, 1);
     conflicts.put(Trait.FRUIT, 1);    
-    getImgMngr().loadImage("Garlic", imageFile);
+    getImgMngr().loadImage(imageName, imageFile);
   }
   
   public void setBonus()
@@ -63,6 +67,19 @@ public class Garlic extends Ingredient
   @Override
   public void isBeingPlayed()
   {
+  }
+
+  @Override
+  public JButton getButton()
+  {    
+    return makeButton(imageName);
+  }
+  // --------------------------------------------------------------------------
+  
+  @Override
+  public void actionPerformed(ActionEvent e)
+  {
+    
   }
 
 }

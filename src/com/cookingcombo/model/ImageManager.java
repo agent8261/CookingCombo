@@ -10,12 +10,13 @@ import javax.imageio.ImageIO;
 public class ImageManager
 {
   private TreeMap<String, BufferedImage> images = new TreeMap<String, BufferedImage>();
-  private final String imageDir = "\\images\\";
+  private final String imageDir = ".\\images\\";
   
   public void loadImage(String imgName, String fileName)
   {
     try
     {
+      System.out.println(imageDir + fileName);      
       BufferedImage buffImg = ImageIO.read(new File(imageDir + fileName));
       if(buffImg == null)
       {  throw new IOException("Null buffImg");  }
@@ -24,5 +25,11 @@ public class ImageManager
     }
     catch( IOException e )
     { e.printStackTrace();  }
+  }
+  
+  public BufferedImage getImage(String imgName)
+  {
+    BufferedImage buffImg = images.get(imgName);
+    return buffImg;
   }
 }

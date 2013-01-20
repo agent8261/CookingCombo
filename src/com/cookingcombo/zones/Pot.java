@@ -8,7 +8,7 @@ import com.cookingcombo.card.Cookable;
 import com.cookingcombo.card.Trait;
 import com.cookingcombo.errors.NotCookable;
 
-public class Pot
+public class Pot extends CCObservable
 {
   private HashMap<Trait, Integer> potTraits = new HashMap<Trait, Integer>();
   private HashMap<Integer, Card> potCards = new HashMap<Integer, Card>();

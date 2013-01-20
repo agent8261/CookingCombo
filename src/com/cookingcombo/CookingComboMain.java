@@ -2,8 +2,8 @@ package com.cookingcombo;
 
 import javax.swing.JFrame;
 
+import com.cookingcombo.model.CCModel;
 import com.cookingcombo.view.MenuBarView;
-import com.cookingcombo.view.RootPanel;
 
 public class CookingComboMain
 {
@@ -16,11 +16,11 @@ public class CookingComboMain
     {
       JFrame coreFrame = new JFrame(coreFrameTitleTxt);
       coreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      RootPanel rootPanel = new RootPanel();
+      CCModel model = new CCModel();
       MenuBarView menuBarView = new MenuBarView();
       
       coreFrame.setJMenuBar(menuBarView);
-      coreFrame.add(rootPanel);
+      coreFrame.add(model);
       coreFrame.pack();
       coreFrame.setVisible(true);      
     }

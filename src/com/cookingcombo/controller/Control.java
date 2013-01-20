@@ -15,7 +15,7 @@ public class Control
   //===========================================================================
   
   //---------------------------------------------------------------------------  
-  Control(CCModel _model)
+  public Control(CCModel _model)
   {
     model = _model;
   }
@@ -43,7 +43,7 @@ public class Control
     
     // Set hands
     model.drawCards(adamHandSize, adam);
-    model.drawCards(bobHandSize, bob);
+    //model.drawCards(bobHandSize, bob);
     
     // Set Pot
     model.putInPot(new Garlic(), adam);
