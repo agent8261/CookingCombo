@@ -22,7 +22,7 @@ public class CookingComboMain
       coreFrame.setJMenuBar(menuBarView);
       coreFrame.add(model);
       coreFrame.pack();
-      coreFrame.setVisible(true);      
+      coreFrame.setVisible(true);     
     }
   }
   public static void main(String[] args)
